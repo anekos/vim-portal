@@ -13,6 +13,8 @@ set cpo&vim
 
 command! -nargs=1 -bar -complete=customlist,portal#_complete
 \             PortalShoot call portal#shoot(<q-args>)
+command! -nargs=0 -bar 
+\             PortalRandomShoot call portal#random_shoot()
 command! -bar PortalReset call portal#reset()
 
 nnoremap <silent> <Plug>(portal-gun-blue)   :PortalShoot blue<CR>

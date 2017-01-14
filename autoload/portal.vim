@@ -33,6 +33,15 @@ function! portal#shoot(color)
   call portal#show_all()
 endfunction
 
+function! portal#random_shoot()
+  for color in keys(s:jump_colors)
+    let line = s:rand(line('$')) + 1
+    let col = s:rand(col([line, '$'])) + 1
+    let s:points[color] = [bufnr('%'), line, col, 0]
+  endfor
+  call portal#show_all()
+endfunction
+
 function! portal#reset()
   let s:points = {}
   call portal#show_all()
@@ -84,6 +93,11 @@ function! portal#highlight()
     let args = join(map(items(colors), 'v:val[0] . "=" . v:val[1]'), ' ')
     execute printf('highlight portal_%s %s', name, args)
   endfor
+endfunction
+
+function! s:rand(n)
+  let l:match_end = matchend(reltimestr(reltime()), '\d\+\.') + 1
+  return reltimestr(reltime())[l:match_end : ] % (a:n + 1)
 endfunction
 
 function! s:getpos()

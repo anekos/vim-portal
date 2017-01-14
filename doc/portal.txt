@@ -47,6 +47,9 @@ COMMANDS					*portal-commands*
 	Make a {color} portal at the current position.
 	You can use "blue" or "orange" for {color}.
 
+:PortalRandomShoot {color}			*:PortalRandomShoot*
+	Make all color portals at random position.
+
 :PortalReset					*:PortalReset*
 	Remove the all portals.
 
@@ -56,6 +59,9 @@ FUNCTIONS					*portal-functions*
 
 portal#shoot({color})				*portal#shoot()*
 	A function version of |:PortalShoot|.
+
+portal#random_shoot({color})			*portal#random_shoot()*
+	A function version of |:PortalRandomShoot|.
 
 portal#reset()					*portal#reset()*
 	A function version of |:PortalReset|.
